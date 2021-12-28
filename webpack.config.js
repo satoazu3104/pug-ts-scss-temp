@@ -8,7 +8,7 @@ const app = {
   entry: path.resolve(__dirname, "src/js/index.ts"),
   output: {
     filename: "./js/index.js",
-    path: path.resolve(__dirname, "Public")
+    path: path.resolve(__dirname, "dist")
   },
   stats: {
     children: true
@@ -92,7 +92,7 @@ templates.forEach((template) => {
   const fileName = template.replace("./src/pug/", "").replace(".pug", ".html");
   app.plugins.push(
     new HtmlWebpackPlugin({
-      filename: `../View/${fileName}`,
+      filename: `${fileName}`,
       template: template,
       inject: false,
       minify: false
